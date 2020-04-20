@@ -1,0 +1,25 @@
+
+.movieCard {
+    width: 220px;
+    margin-bottom: 30px;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.5);
+    background-color: var(--color-grey-light-3);
+    color: var(--color-grey-dark-1);
+    border-radius: 7px;
+
+    &__cover {
+        height: 250px;
+        width: 220px;
+        object-fit: cover;
+        border-radius: 7px 7px 0 0;
+    }
+
+    &__desc {
+        display: flex;
+        padding: 15px 10px;
+        justify-content: space-between;
+    }
+    :hover {
+        scale: (2);
+    }
+}

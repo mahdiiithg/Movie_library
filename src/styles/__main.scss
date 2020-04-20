@@ -1,0 +1,80 @@
+.header {
+    display: flex;
+    font-size: 22px;
+    background-color: var(--color-primary);
+    &__icon {
+        padding-right: 5px;
+    }
+    &__title {
+        //color: var(--color-grey-dark-1);
+        background-color: var(--color-primary-light);
+        display: flex;
+        line-height: 1;
+        padding: 2rem;
+        align-self: stretch;
+        align-items: center;
+        font-weight: 700;
+        cursor: pointer;
+
+        @media only screen and (max-width: 720px){
+            padding: 2rem 1rem;
+        }
+        @media only screen and (max-width: 350px){
+            padding: 1.5rem 1rem;
+        }
+
+        div {
+            @media only screen and (max-width: 720px){
+                display: none;
+            }
+        }
+    }
+    &__input {
+        outline: none;
+        margin-left: 4rem;
+        margin-right: auto;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        color: var(--color-grey-dark-1);
+        position: relative;
+        background-color: var(--color-grey-light-4);
+        padding: 10px 30px;
+        max-width: 40rem;
+        width: 100%;
+        border-radius: 10rem;
+        border: solid 2px var(--color-primary-dark);
+        font-size: 19px;
+
+        @media only screen and (max-width: 720px){
+            margin-left: 1rem;
+            font-size: 15px;
+            max-width: 60%;
+            
+        }
+        @media only screen and (max-width: 350px){
+            margin-left: 20px;
+            max-width: 50%;
+        }
+    }
+}
+.gallery {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 25%);
+    padding-top: 40px;
+    padding-left: 60px;
+    @media only screen and (max-width: 768px){
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(3, 30%);
+        padding-left: 0px;
+    }
+    @media only screen and (max-width: 720px){
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(1, 13rem);
+        padding-left: 0px;
+    }
+}
+
