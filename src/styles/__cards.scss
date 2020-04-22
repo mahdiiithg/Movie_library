@@ -1,11 +1,11 @@
 
 .movieCard {
     width: 220px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.5);
     background-color: var(--color-grey-light-3);
     color: var(--color-grey-dark-1);
-    border-radius: 7px;
+    border-radius: 10px;
 
     &__cover {
         height: 250px;
