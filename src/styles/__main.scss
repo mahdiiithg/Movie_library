@@ -58,6 +58,11 @@
         }
     }
 }
+.singleGallery {
+  display: flex !important;
+  padding-left: 0 !important;
+  justify-content: flex-start !important;
+}
 .gallery {
     position: relative;
     display: grid;

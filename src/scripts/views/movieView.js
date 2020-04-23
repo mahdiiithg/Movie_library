@@ -86,7 +86,7 @@ export const renderMovie = (movie, isFavorite, isWatched, fromMenu) => {
         </div>
     `;
     
-    
-    elements.mainContainer.insertAdjacentHTML('afterend', markup);
+    elements.mainContainer.classList.add('singleGallery');
+    elements.mainContainer.insertAdjacentHTML('beforeend', markup);
   }
 };

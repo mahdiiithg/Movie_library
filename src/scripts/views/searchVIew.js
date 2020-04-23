@@ -75,7 +75,7 @@ export const renderMovieCard = movies => {
             `
     elements.mainContainer.insertAdjacentHTML('beforeend', markup); 
     })
-    
+    elements.mainContainer.classList.remove('singleGallery');
 }
 
 export const err = () => {
