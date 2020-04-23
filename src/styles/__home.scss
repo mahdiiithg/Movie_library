@@ -1,19 +1,23 @@
 .home {
+    position: absolute;
+    top: 25%;
     display: flex;
     justify-content: space-around;
     text-align: center;
     align-self: center;
     align-items: center;
     padding-top: 150px;
-    @media only screen and (max-width: 720px){
+    width: 100%;
+    @media only screen and (max-width: 768px){
       padding-top: 60px;
+      flex-direction: column-reverse;
     }
     
     &__img_src {
       max-width: 32%;
       @media only screen and (max-width: 720px){
         max-width: 70%;
-        padding-bottom: 40px;
+        padding-top: 40px;
       }
     }
 
@@ -33,13 +37,27 @@
           font-size: 12px;
         }
     }
-    
-
-    @media only screen and (max-width: 720px) {
-        flex-direction: column;
-        
-    }
 }
+
+/* Error */
+
+.erro-card {
+    position: absolute;
+    padding-top: 10%;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 32px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    @media only screen and (max-width: 720px) {
+      font-size: 25px;
+      padding-top: 30%;
+  }
+}
+
+
+
 /*  FadeIn  */
 .fade-in {
   animation: fadeIn ease 1s;
@@ -66,6 +84,11 @@
     align-items: center;
     margin: 0 auto;
     justify-content: center;
+    position: absolute;
+    left: 45%;
+    @media only screen and (max-width: $bp-small) {
+      left: 40%;
+    }
   }
   
   .line {

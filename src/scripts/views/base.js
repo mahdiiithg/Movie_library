@@ -1,9 +1,13 @@
+import notFound from '../../images/not-found.png'
+
 // Eporting DOM elements
 export const elements = {
     icon: document.querySelector('.home__img_src'),
     inputForm: document.querySelector('.header__input'),
     Form: document.querySelector('.header'),
-    mainContainer: document.querySelector('.gallery')
+    mainContainer: document.querySelector('.gallery'),
+    NotFound: notFound,
+    SearchedResult: document.querySelector('.header__title__searched')
 }
 
 // Render the loader
@@ -28,4 +32,14 @@ export const renderLoader = () => {
   export const clearUI = () => {
     elements.mainContainer.innerHTML = '';
   };
+
+  export const renderHome = () =>{
+     const markup = `
+          <div class="home"> <img src="${notFound}" class="home__img_src" alt="Movie Library"> <div
+          class="home__desc"> <h1>Movie library</h1> <div>⌨️ Write the name of the movie
+          on the search bar</div> <p>➡️ Press enter or the search icon</p> <p>🔥 Enjoy</p>
+          </div> 
+     `
+     elements.mainContainer.insertAdjacentHTML('beforeend', markup); 
+  }
   

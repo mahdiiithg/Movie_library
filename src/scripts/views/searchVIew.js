@@ -13,14 +13,11 @@ const paginationButton = (page, type) =>  `
 const renderPagination = (page, totalResults) => {
     // limiting the result for each page
     const pages = Math.ceil(totalResults / 10);
-
     let button;
-
     // Display next button if it needed
     if(page === 1 &&  pages > 1) {
         button = paginationButton(page , 'Next')
     } 
-
     // Pervious and Next incase of exploring more than one pages
     else if (page < pages){
         button = `
@@ -38,21 +35,16 @@ const renderPagination = (page, totalResults) => {
 };
 
 // Render single movie card
-const renderMovieCard = movie => {
-    const movieContainer = document.querySelector('.gallery');
-    const notfount = 'https://www.movieartarena.com/images/wotpotab.jpg'
-    movies.Search.forEach(function (movie) {
-        const markup = `
-    <div class="movieCard" data-id="${'movie.imdbID'}">
-        <img class="movieCard__cover" src="${movie.Poster ? movie.Poster : notfount}" alt="${movie.Title}">
-        <div class="movieCard__desc">
-            <span class="movieCard__title">${movie.Title}</span>
-            <span class="movieCard__year">${movie.Year}</span>
-        </div>
-    </div>
+export const renderResults = query => {
+    const markup = `
+        <h2 class="header__title header__title__searched fade-in">Search results for "${query}"</h2>
     `
-    movieContainer.insertAdjacentHTML('beforeend', markup);
-    })
+    elements.mainContainer.insertAdjacentHTML('beforebegin', markup);
+}
+export const clearResults = (query) => {
+    
+        document.querySelector('.header__title__searched').remove()
+    
 }
 
 // Get input from form
@@ -65,30 +57,32 @@ export const clearInput = () => {
 
 
 // Then calls the renderMovie for each element on the array
-export const renderResults = movies => {
-    const movieContainer = document.querySelector('.gallery');
-    const notfount = 'https://www.movieartarena.com/images/wotpotab.jpg'
+export const renderMovieCard = movies => {
+
     movies.Search.forEach(function (movie) {
+        // If there was no image
+        const img = 
+        movie.Poster !== 'N/A' ? `<img class="movieCard__cover" src="${movie.Poster}" alt="${movie.Title}">` :  `<img class="movieCard__cover" src="${elements.NotFound}" alt="${movie.Title}">`
+
         const markup = `
-    <div class="movieCard fade-in" data-id="${'movie.imdbID'}">
-        <img class="movieCard__cover" src="${movie.Poster ? movie.Poster : notfount}" alt="${movie.Title}">
-        <div class="movieCard__desc">
-            <span class="movieCard__title">${movie.Title}</span>
-            <span class="movieCard__year">${movie.Year}</span>
-        </div>
-    </div>
-    `
-    movieContainer.insertAdjacentHTML('beforeend', markup);
+            <div class="movieCard fade-in" data-id="${movie.imdbID}">
+                ${img}
+                <div class="movieCard__desc">
+                    <span class="movieCard__title">${movie.Title}</span>
+                    <span class="movieCard__year">${movie.Year}</span>
+                </div>
+            </div>
+            `
+    elements.mainContainer.insertAdjacentHTML('beforeend', markup); 
     })
+    
 }
 
 export const err = () => {
     const movieContainer = document.querySelector('.gallery');
         const markup = `
-    <div class="movieCard fade-in" data-id="${'movie.imdbID'}">
-        <div class="movieCard__desc">
-            not found!!!
-        </div>
+    <div class="erro-card">
+            movie did not found
     </div>
     `
     movieContainer.insertAdjacentHTML('beforeend', markup);
