@@ -169,7 +169,7 @@
   
       &-details {
         font-weight: 400;
-        font-size: 1.7rem;
+        font-size: 1.2rem;
         margin-bottom: 3rem;
   
         @media only screen and (max-width: $bp-small) {
@@ -198,7 +198,7 @@
         display: flex;
   
         & > *:not(:last-child) {
-          margin-right: 2.5rem;
+          margin-right: 2rem;
   
           @media only screen and (max-width: $bp-small) {
             margin-right: 2rem;
@@ -222,11 +222,11 @@
       }
   
       &-plot {
-        font-size: 1.7rem;
+        font-size: 1.2rem;
         font-weight: 100;
   
         @media only screen and (max-width: $bp-largest) {
-          font-size: 1.7rem;
+          font-size: 1.2rem;
         }
       }
     }
@@ -306,7 +306,7 @@
     outline: none;
     border: none;
     border-radius: 3rem;
-    padding: 1.5rem 3.5rem;
+    padding: 1rem 1.8rem;
     cursor: pointer;
     transition: all 0.2s;
     display: flex;

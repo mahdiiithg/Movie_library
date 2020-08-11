@@ -7,12 +7,12 @@ const movie = (function () {
         getMovie: async (id, callback) => {
             let idd = 'tt7767422'
             try {
-                    const apiKey = '8cc749c'
-                    const url = `https://www.omdbapi.com/?apikey=${apiKey}&i=${id}&type=movie&plot=full`
+                    const apiKey = process.env.APIKEY
+                    const url = `https://www.omdbapi.com/?apikey=${process.env.APIKEY}&i=${id}&type=movie&plot=full`
                     let res = await fetch(url)
                     let data = await res.json()
                     callback(data)
-                    console.log(data);
+                    console.log('Movie class model',data);
             } catch (error) {
                 console.log(error);
             }

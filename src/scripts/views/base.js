@@ -1,5 +1,5 @@
 import notFound from '../../images/not-found.png'
-
+import homeImage from '../../images/undraw_movie_night_93wl.svg'
 // Eporting DOM elements
 export const elements = {
     icon: document.querySelector('.home__img_src'),
@@ -35,7 +35,7 @@ export const renderLoader = () => {
 
   export const renderHome = () =>{
      const markup = `
-          <div class="home"> <img src="${notFound}" class="home__img_src" alt="Movie Library"> <div
+          <div class="home"> <img src="${homeImage}" class="home__img_src" alt="Movie Library"> <div
           class="home__desc"> <h1>Movie library</h1> <div>⌨️ Write the name of the movie
           on the search bar</div> <p>➡️ Press enter or the search icon</p> <p>🔥 Enjoy</p>
           </div> 

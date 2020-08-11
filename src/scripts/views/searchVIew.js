@@ -2,37 +2,45 @@ import {elements} from './base'
 
 // Pagination button
 
-const paginationButton = (page, type) =>  `
-    <button class="button button_pagination details__go-${type}animated fadeIn" data-page=${type === 'next' ? page + 1 : page - 1}>
-        <i class="icon ion-ios-arrow-round-${ 
-            type === 'next' ? 'forward' : 'back'
-        }"></i> Page ${type === "next" ? page + 1 : page - 1}</button>
+const paginationButton = (page, type) => `
+<button class="button button__pagination details__go-${type} animated fadeIn" data-page=${
+type === 'next' ? page + 1 : page - 1
+}>
+  <i class="icon ion-ios-arrow-round-${
+    type === 'next' ? 'forward' : 'back'
+  }"></i>Page ${type === 'next' ? page + 1 : page - 1}
+</button>
 `;
 
 // Render Buttons
 const renderPagination = (page, totalResults) => {
-    // limiting the result for each page
+    // Determine how many pages the results need
     const pages = Math.ceil(totalResults / 10);
+  
     let button;
-    // Display next button if it needed
-    if(page === 1 &&  pages > 1) {
-        button = paginationButton(page , 'Next')
-    } 
-    // Pervious and Next incase of exploring more than one pages
-    else if (page < pages){
-        button = `
-        ${paginationButton(page, 'Back')}
-        ${paginationButton(page, 'Next')}
-        `;
+  
+    // If its the page n1, and there are more pages to render, display next
+    if (page === 1 && pages > 1) {
+      button = paginationButton(page, 'next');
     }
-    // Just the back button for end page
-    else if (page === page && pages > 1) {
-        button = paginationButton(page, 'Back')
+  
+    // If current page is less than the pages the results need, next and prev buttons are needed
+    else if (page < pages) {
+      button = `
+      ${paginationButton(page, 'back')}
+      ${paginationButton(page, 'next')}
+      `;
+    }
+    // if current page is equal to number of pages needed, so only prev button
+    else if (page === pages && pages > 1) {
+      button = paginationButton(page, 'back');
     }
     if (button) {
-        document.querySelector('.movies__pagination').insertAdjacentHTML('afterbegin' , button)
+      document
+        .querySelector('.movies__pagination')
+        .insertAdjacentHTML('afterbegin', button);
     }
-};
+  };
 
 // Render single movie card
 export const renderResults = query => {
@@ -55,10 +63,9 @@ export const clearInput = () => {
   elements.inputForm.value = '';
 };
 
-
 // Then calls the renderMovie for each element on the array
 export const renderMovieCard = movies => {
-
+    
     movies.Search.forEach(function (movie) {
         // If there was no image
         const img = 
@@ -76,6 +83,9 @@ export const renderMovieCard = movies => {
     elements.mainContainer.insertAdjacentHTML('beforeend', markup); 
     })
     elements.mainContainer.classList.remove('singleGallery');
+    
+    //renderPagination(1 ,movies.totalResults)
+    
 }
 
 export const err = () => {

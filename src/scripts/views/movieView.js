@@ -8,7 +8,7 @@ export const renderMovie = (movie, isFavorite, isWatched, fromMenu) => {
     
       const img = 
       movie.Poster !== 'N/A' ? `<img class="movieCard__cover" src="${movie.Poster}" alt="${movie.Title}">` :  `<img class="movieCard__cover" src="${notFound}" alt="${movie.Title}">`
-     
+
       markup = `
         <div class="container__single">
           <div class="container__single__img animated fadeIn faster">
